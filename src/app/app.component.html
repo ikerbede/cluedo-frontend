@@ -21,6 +21,30 @@
       </mat-chip-list>
     </mat-expansion-panel>
   </mat-accordion>
+
+  <mat-card id="test-container">
+    <mat-icon svgIcon="search"></mat-icon>
+    <form>
+      <mat-form-field>
+        <mat-select name="suspect" placeholder="Suspect" [(ngModel)]="test.suspect">
+          <mat-option *ngFor="let suspect of deck.suspects" [value]="suspect.id">{{ suspect.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field #weapon>
+        <mat-select name="weapon" placeholder="Arme" [(ngModel)]="test.weapon">
+          <mat-option *ngFor="let weapon of deck.weapons" [value]="weapon.id">{{ weapon.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field #place>
+        <mat-select name="place" placeholder="Lieu" [(ngModel)]="test.place">
+          <mat-option *ngFor="let place of deck.places" [value]="place.id">{{ place.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+    <button type="submit" mat-raised-button color="primary" (click)="testCrime()">TESTER</button>
+    <button mat-raised-button color="accent" (click)="clearTest()">EFFACER</button>
+  </mat-card>  
+
   <div id="solution-container">
       <button mat-raised-button color="warn" (click)="displayCrime()">SOLUTION</button>
   </div>
